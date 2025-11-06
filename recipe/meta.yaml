@@ -40,6 +40,7 @@ requirements:
     - bluesky-tiled-plugins
     - networkx ~=2.1
     - tabulate ~=0.8.7
+    - Deprecated ~=1.2.9
 
 test:
   imports:
