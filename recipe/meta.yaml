@@ -1,5 +1,5 @@
 {% set name = "blop" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/blop-{{ version }}.tar.gz
-  sha256: 7b6d16fe897ae5f469fecce0ce9318df9635dd0b9c78665259a08b8b65af8d42
+  sha256: 41d9df11dc950fb5fd8c18669d7e492ed0116199a4ad53059c503b3ebae4a417
 
 build:
   noarch: python
@@ -40,6 +40,7 @@ requirements:
     - bluesky-tiled-plugins
     - networkx ~=2.1
     - tabulate ~=0.8.7
+    - Deprecated ~=1.2.9
 
 test:
   imports:
