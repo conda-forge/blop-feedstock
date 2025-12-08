@@ -1,5 +1,5 @@
 {% set name = "blop" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/blop-{{ version }}.tar.gz
-  sha256: 41d9df11dc950fb5fd8c18669d7e492ed0116199a4ad53059c503b3ebae4a417
+  sha256: 9ff0f0b0ed60186892af1e6b427c5fdefa0906e1db8b2364857236b0aed93334
 
 build:
   noarch: python
@@ -50,6 +50,9 @@ test:
     - blop
     - blop.ax
     - blop.ax.agent
+    - blop.ax.dof
+    - blop.ax.objective
+    - blop.ax.optimizer
     - blop.agent
     - blop.bayesian
     - blop.bayesian.acquisition
@@ -67,6 +70,7 @@ test:
     - blop.objectives
     - blop.plans
     - blop.plotting
+    - blop.protocols
     - blop.utils
     - blop.utils.functions
     - blop.utils.sets
