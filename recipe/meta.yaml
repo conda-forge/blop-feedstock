@@ -25,6 +25,7 @@ requirements:
     - python-tsp
     - ax-platform >=1.1.0,<1.3
     - bluesky-base >=1.14.2,<2
+    - bluesky-queueserver-api
     - pytorch
     - botorch >=0.16.0,<0.17
     - gpytorch
@@ -54,6 +55,7 @@ test:
     - blop.plan_stubs
     - blop.plans
     - blop.protocols
+    - blop.queueserver
     - blop.utils
   commands:
     - pip check
