@@ -54,7 +54,6 @@ test:
     - blop.plan_stubs
     - blop.plans
     - blop.protocols
-    - blop.queueserver
     - blop.utils
   commands:
     - pip check
