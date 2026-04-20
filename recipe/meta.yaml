@@ -31,7 +31,7 @@ requirements:
     - scipy
     - numpy
     - networkx >=3
-    - rich>=13
+    - rich >=13
 
 test:
   imports:
