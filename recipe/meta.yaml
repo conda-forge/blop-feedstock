@@ -1,5 +1,6 @@
 {% set name = "blop" %}
 {% set version = "1.0.0" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}-suite
@@ -17,7 +18,7 @@ build:
 # all outputs, including the implicit global one.
 requirements:
   host:
-    - python
+    - python {{ python_min }}
 
 outputs:
   - name: blop-base
