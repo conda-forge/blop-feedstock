@@ -2,7 +2,7 @@
 {% set version = "1.0.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-suite
   version: {{ version }}
 
 source:
@@ -10,58 +10,85 @@ source:
   sha256: 61b5999e905d8a3165e133112a42d9e2d928acde4913ce9e59b703e3e0eeadbe
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  noarch: python
 
+# To avoid creating redundant CI jobs, conda-smithy needs python to be used in
+# all outputs, including the implicit global one.
 requirements:
   host:
-    - python {{ python_min }}
-    - hatch-vcs
-    - hatchling
-    - pip
-  run:
-    - python >={{ python_min }}
-    - ax-platform >=1.1.0,<1.3
-    - bluesky-base >=1.14.2,<2
-    - bluesky-queueserver-api
-    - pytorch
-    - botorch >=0.16.0,<0.17
-    - gpytorch
-    - scipy
-    - numpy
-    - networkx >=3
-    - rich >=13
-    - websockets
+    - python
 
-test:
-  imports:
-    # The list of imports is generated via the following command:
-    #   $ cd <blop-repo>/src
-    #   $ find blop -name "*.py" | grep -v tests | sed 's/.__init__.py//g' | sed 's/._version//g' | sed 's;/;.;g' | sed 's/\.py//g'| sort -u
-    - blop
-    - blop.ax
-    - blop.ax.agent
-    - blop.ax.dof
-    - blop.ax.objective
-    - blop.ax.optimizer
-    - blop.bayesian
-    - blop.bayesian.kernels
-    - blop.bayesian.models
-    - blop.callbacks
-    - blop.callbacks.logger
-    - blop.callbacks.router
-    - blop.callbacks.utils
-    - blop.plan_stubs
-    - blop.plans
-    - blop.protocols
-    - blop.queueserver
-    - blop.utils
-  commands:
-    - pip check
-  requires:
-    - python {{ python_min }}
-    - pip
+outputs:
+  - name: blop-base
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python {{ python_min }}
+        - hatch-vcs
+        - hatchling
+        - pip
+      run:
+        - python >={{ python_min }}
+        - bluesky-base >=1.14.2
+        - networkx >=3
+        - numpy
+        - rich >=13
+      run_constrained:
+        - blop {{ version }}.*
+    test:
+      imports:
+        - blop
+        - blop.callbacks
+        - blop.callbacks.logger
+        - blop.callbacks.router
+        - blop.callbacks.utils
+        - blop.plan_stubs
+        - blop.plans
+        - blop.protocols
+        - blop.utils
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: blop
+    build:
+      noarch: python
+    requirements:
+      host:
+        - {{ pin_subpackage('blop-base', exact=True) }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage('blop-base', exact=True) }}
+        - ax-platform >=1.3.0,<1.4
+        - botorch >=0.18.0,<0.19.0
+        - bluesky-queueserver-api
+        - gpytorch
+        - pytorch
+        - xopt >3.0.0
+    test:
+      imports:
+        - blop.ax
+        - blop.ax.agent
+        - blop.ax.dof
+        - blop.ax.objective
+        - blop.ax.optimizer
+        - blop.ax.queueserver_agent
+        - blop.bayesian
+        - blop.bayesian.kernels
+        - blop.bayesian.models
+        - blop.queueserver
+        - blop.xopt
+        - blop.xopt.optimizer
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
 
 about:
   home: https://github.com/bluesky/blop
