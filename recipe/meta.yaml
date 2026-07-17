@@ -70,6 +70,7 @@ outputs:
         - bluesky-queueserver-api
         - gpytorch
         - pytorch
+        - websockets
         - xopt >3.0.0
     test:
       imports:
