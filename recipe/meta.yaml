@@ -24,7 +24,7 @@ outputs:
   - name: blop-base
     build:
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+      script: python -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
         - python {{ python_min }}
