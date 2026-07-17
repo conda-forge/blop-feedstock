@@ -1,5 +1,5 @@
 {% set name = "blop" %}
-{% set version = "1.0.0b1" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/blop-{{ version }}.tar.gz
-  sha256: c79cf75080c2e388291eefff80e4344adcb9a09fa5f0409e11b459b34a6fd4f4
+  sha256: 61b5999e905d8a3165e133112a42d9e2d928acde4913ce9e59b703e3e0eeadbe
 
 build:
   noarch: python
