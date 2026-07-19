@@ -3,7 +3,7 @@
 {% set python_min = "3.11" %}
 
 package:
-  name: {{ name|lower }}-suite
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
@@ -13,9 +13,8 @@ source:
 build:
   number: 0
   noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
-# To avoid creating redundant CI jobs, conda-smithy needs python to be used in
-# all outputs, including the implicit global one.
 requirements:
   host:
     - python {{ python_min }}
@@ -35,34 +34,35 @@ requirements:
     - pytorch
     - websockets
     - xopt >3.0.0
-  test:
-    imports:
-      - blop
-      - blop.callbacks
-      - blop.callbacks.logger
-      - blop.callbacks.router
-      - blop.callbacks.utils
-      - blop.plan_stubs
-      - blop.plans
-      - blop.protocols
-      - blop.utils
-      - blop.ax
-      - blop.ax.agent
-      - blop.ax.dof
-      - blop.ax.objective
-      - blop.ax.optimizer
-      - blop.ax.queueserver_agent
-      - blop.bayesian
-      - blop.bayesian.kernels
-      - blop.bayesian.models
-      - blop.queueserver
-      - blop.xopt
-      - blop.xopt.optimizer
-    commands:
-      - pip check
-    requires:
-      - python {{ python_min }}
-      - pip
+
+test:
+  imports:
+    - blop
+    - blop.callbacks
+    - blop.callbacks.logger
+    - blop.callbacks.router
+    - blop.callbacks.utils
+    - blop.plan_stubs
+    - blop.plans
+    - blop.protocols
+    - blop.utils
+    - blop.ax
+    - blop.ax.agent
+    - blop.ax.dof
+    - blop.ax.objective
+    - blop.ax.optimizer
+    - blop.ax.queueserver_agent
+    - blop.bayesian
+    - blop.bayesian.kernels
+    - blop.bayesian.models
+    - blop.queueserver
+    - blop.xopt
+    - blop.xopt.optimizer
+  commands:
+    - pip check
+  requires:
+    - python {{ python_min }}
+    - pip
 
 about:
   home: https://github.com/bluesky/blop
