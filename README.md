@@ -30,8 +30,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-blop-green.svg)](https://anaconda.org/conda-forge/blop) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/blop.svg)](https://anaconda.org/conda-forge/blop) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/blop.svg)](https://anaconda.org/conda-forge/blop) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/blop.svg)](https://anaconda.org/conda-forge/blop) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-blop--base-green.svg)](https://anaconda.org/conda-forge/blop-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/blop-base.svg)](https://anaconda.org/conda-forge/blop-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/blop-base.svg)](https://anaconda.org/conda-forge/blop-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/blop-base.svg)](https://anaconda.org/conda-forge/blop-base) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-blop--suite-green.svg)](https://anaconda.org/conda-forge/blop-suite) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/blop-suite.svg)](https://anaconda.org/conda-forge/blop-suite) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/blop-suite.svg)](https://anaconda.org/conda-forge/blop-suite) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/blop-suite.svg)](https://anaconda.org/conda-forge/blop-suite) |
 
 Installing blop-suite
 =====================
@@ -43,41 +42,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `blop, blop-base` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `blop-suite` can be installed with `conda`:
 
 ```
-conda install blop blop-base
-```
-
-or with `mamba`:
-
-```
-mamba install blop blop-base
-```
-
-It is possible to list all of the versions of `blop` available on your platform with `conda`:
-
-```
-conda search blop --channel conda-forge
+conda install blop-suite
 ```
 
 or with `mamba`:
 
 ```
-mamba search blop --channel conda-forge
+mamba install blop-suite
+```
+
+It is possible to list all of the versions of `blop-suite` available on your platform with `conda`:
+
+```
+conda search blop-suite --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search blop-suite --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search blop --channel conda-forge
+mamba repoquery search blop-suite --channel conda-forge
 
-# List packages depending on `blop`:
-mamba repoquery whoneeds blop --channel conda-forge
+# List packages depending on `blop-suite`:
+mamba repoquery whoneeds blop-suite --channel conda-forge
 
-# List dependencies of `blop`:
-mamba repoquery depends blop --channel conda-forge
+# List dependencies of `blop-suite`:
+mamba repoquery depends blop-suite --channel conda-forge
 ```
 
 
