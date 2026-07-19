@@ -1,5 +1,5 @@
-About blop-suite-feedstock
-==========================
+About blop-feedstock
+====================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/blop-feedstock/blob/main/LICENSE.txt)
 
@@ -30,53 +30,53 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-blop--suite-green.svg)](https://anaconda.org/conda-forge/blop-suite) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/blop-suite.svg)](https://anaconda.org/conda-forge/blop-suite) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/blop-suite.svg)](https://anaconda.org/conda-forge/blop-suite) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/blop-suite.svg)](https://anaconda.org/conda-forge/blop-suite) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-blop-green.svg)](https://anaconda.org/conda-forge/blop) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/blop.svg)](https://anaconda.org/conda-forge/blop) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/blop.svg)](https://anaconda.org/conda-forge/blop) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/blop.svg)](https://anaconda.org/conda-forge/blop) |
 
-Installing blop-suite
-=====================
+Installing blop
+===============
 
-Installing `blop-suite` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `blop` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `blop-suite` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `blop` can be installed with `conda`:
 
 ```
-conda install blop-suite
-```
-
-or with `mamba`:
-
-```
-mamba install blop-suite
-```
-
-It is possible to list all of the versions of `blop-suite` available on your platform with `conda`:
-
-```
-conda search blop-suite --channel conda-forge
+conda install blop
 ```
 
 or with `mamba`:
 
 ```
-mamba search blop-suite --channel conda-forge
+mamba install blop
+```
+
+It is possible to list all of the versions of `blop` available on your platform with `conda`:
+
+```
+conda search blop --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search blop --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search blop-suite --channel conda-forge
+mamba repoquery search blop --channel conda-forge
 
-# List packages depending on `blop-suite`:
-mamba repoquery whoneeds blop-suite --channel conda-forge
+# List packages depending on `blop`:
+mamba repoquery whoneeds blop --channel conda-forge
 
-# List dependencies of `blop-suite`:
-mamba repoquery depends blop-suite --channel conda-forge
+# List dependencies of `blop`:
+mamba repoquery depends blop --channel conda-forge
 ```
 
 
@@ -121,17 +121,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating blop-suite-feedstock
-=============================
+Updating blop-feedstock
+=======================
 
-If you would like to improve the blop-suite recipe or build a new
+If you would like to improve the blop recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/blop-suite-feedstock are
+Note that all branches in the conda-forge/blop-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
