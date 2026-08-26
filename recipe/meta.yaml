@@ -1,5 +1,5 @@
 {% set name = "blop" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/blop-{{ version }}.tar.gz
-  sha256: 61b5999e905d8a3165e133112a42d9e2d928acde4913ce9e59b703e3e0eeadbe
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/blop-{{ version }}.tar.gz
+  sha256: 306b6a1f68f596972bab84f4389302846eccda1f947c1c0141d01ff32af946e0
 
 build:
   number: 0
